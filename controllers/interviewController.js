@@ -30,7 +30,6 @@ exports.redirect = async (req, res, next) => {
   try {
     const { tokens } = await oauth2Client.getToken(code);
     oauth2Client.setCredentials(tokens);
-    console.log(oauth2Client.credentials);
     res.send({ msg: "You have successfully logged in" });
   } catch (error) {
     console.error("Error during Google authentication:", error);
